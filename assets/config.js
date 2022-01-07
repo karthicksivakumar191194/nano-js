@@ -1,0 +1,17 @@
+//Base URL for API
+const API_BASE_URL = "";
+
+//SITE URL
+const windowLocation = window.location;
+let SITE_URL = "";
+if (windowLocation.protocol) {
+  SITE_URL += windowLocation.protocol + "//";
+}
+if (windowLocation.hostname) {
+  SITE_URL += windowLocation.hostname;
+}
+if (windowLocation.port) {
+  SITE_URL += ":" + windowLocation.port;
+}
+
+console.log(SITE_URL, "Site URL");
