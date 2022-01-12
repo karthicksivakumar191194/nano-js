@@ -34,7 +34,28 @@ const getPage = (page) => {
 const loadPageTemplate = (template) => {
   fetch(`${SITE_URL}${template}`)
     .then((data) => data.text())
-    .then((html) => (document.getElementById("n-admin").innerHTML = html))
+    .then((html) => {
+      document.getElementById("n-admin").innerHTML = html;
+    })
+    .then(function (html) {
+      var scripts = document
+        .getElementById("n-admin")
+        .querySelectorAll("script");
+
+      for (var i = 0; i < scripts.length; i++) {
+        if (scripts[i].innerText) {
+          eval(scripts[i].innerText);
+        } else {
+          fetch(scripts[i].src).then(function (data) {
+            data.text().then(function (r) {
+              eval(r);
+            });
+          });
+        }
+        // To not repeat the element
+        scripts[i].parentNode.removeChild(scripts[i]);
+      }
+    })
     .then(() => {
       //API callback
     })
