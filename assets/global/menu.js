@@ -1,14 +1,14 @@
 /*
 NOTE: 
-1. Add "data-nlinkto" to the element which we need to load page/screen withoutout browser refresh.
+1. Add "data-n-linkto" to the element which we need to load page/screen withoutout browser refresh.
 2. Add menu name, html template & callback in "assets\global\menuSchema.js" file.
-3. This script file should be included after loading all the script files.
+3. This script file should be included before loading page script files.
 */
 
 document.addEventListener("click", function (e) {
-  if (e.target && e.target.dataset.nlinkto) {
+  if (e.target && e.target.dataset.nLinkto) {
     e.preventDefault();
-    const linkTo = e.target.dataset.nlinkto;
+    const linkTo = e.target.dataset.nLinkto;
     getPage(linkTo);
   }
 });
@@ -35,11 +35,12 @@ const loadPageTemplate = (template) => {
   fetch(`${SITE_URL}${template}`)
     .then((data) => data.text())
     .then((html) => {
-      document.getElementById("n-admin").innerHTML = html;
+      document.querySelector("[data-n-dynamic-element='main']").innerHTML =
+        html;
     })
     .then(function (html) {
       var scripts = document
-        .getElementById("n-admin")
+        .querySelector("[data-n-dynamic-element='main']")
         .querySelectorAll("script");
 
       for (var i = 0; i < scripts.length; i++) {

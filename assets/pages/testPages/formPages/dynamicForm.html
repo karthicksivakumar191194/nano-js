@@ -4,7 +4,7 @@
       <div
         class="row dynamic-group-container"
         data-n-element="dynamic-field-container"
-        data-n-total="1"
+        data-n-count="1"
       >
         <div class="col-md-12 dynamic-group" data-n-id="1">
           <div class="row">
@@ -76,14 +76,14 @@
 <script type="javascript">
   document.querySelector("[data-n-trigger='add-dynamic-field']").onclick = function(el){
 
-    <!-- Update Dynamic Field Total Start -->
+    <!-- Update Dynamic Field Count Start -->
         const closestForm = el.target.closest("form");
 
         const dynamicFieldGroup = closestForm.querySelector("[data-n-element='dynamic-field-container']");
-        const dynamicFieldCount = dynamicFieldGroup.getAttribute("data-n-total");
+        const dynamicFieldCount = dynamicFieldGroup.getAttribute("data-n-count");
         const dynamicFieldNewCount = parseInt(dynamicFieldCount) + 1;
 
-        dynamicFieldGroup.setAttribute("data-n-total", dynamicFieldNewCount);
+        dynamicFieldGroup.setAttribute("data-n-count", dynamicFieldNewCount);
     <!-- Update Dynamic Field Total End -->
 
     <!-- Main Div Start -->

@@ -43,42 +43,94 @@
               >
                 <div class="simplebar-content" style="padding: 0px">
                   <li class="nav-item">
-                    <a class="nav-link" href="#" data-nlinkto="dashboard">
+                    <a class="nav-link" href="#" data-n-linkto="dashboard">
                       <i class="bx bx-grid-alt nav-icon"></i>
                       Dashboard
                     </a>
                   </li>
-                  <li class="nav-title">Test Menu 1</li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" data-nlinkto="testPage">
-                      <i class="bx bx-user nav-icon"></i>
-                      Test Page
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <i class="bx bx-purchase-tag-alt nav-icon"></i>
-                      Test2 Page
-                    </a>
-                  </li>
-                  <li class="nav-title">Test Menu 2</li>
+                  <li class="nav-title">Test Pages</li>
                   <li class="nav-group">
                     <a class="nav-link nav-group-toggle" href="#">
-                      <i class="bx bx-detail nav-icon"></i>
-                      Form Page
+                      <i class="bx bx-purchase-tag-alt nav-icon"></i>
+                      Static Pages
                     </a>
                     <ul class="nav-group-items">
                       <li class="nav-item">
-                        <a class="nav-link" href="#" data-nlinkto="basicForm"
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_staticTestPage1"
+                          ><span class="nav-icon"></span> Test Page1</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_staticTestPage2"
+                          ><span class="nav-icon"></span> Test Page2</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-group">
+                    <a class="nav-link nav-group-toggle" href="#">
+                      <i class="bx bx-purchase-tag-alt nav-icon"></i>
+                      API Pages
+                    </a>
+                    <ul class="nav-group-items">
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_apiTestPage1"
+                          ><span class="nav-icon"></span> Test Page1</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_apiTestPage2"
+                          ><span class="nav-icon"></span> Test Page2</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-group">
+                    <a class="nav-link nav-group-toggle" href="#">
+                      <i class="bx bx-detail nav-icon"></i>
+                      Form Pages
+                    </a>
+                    <ul class="nav-group-items">
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_basicForm"
                           ><span class="nav-icon"></span> Basic Form</a
                         >
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#" data-nlinkto="dynamicForm"
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_dynamicForm"
                           ><span class="nav-icon"></span> Dynamic Form</a
                         >
                       </li>
                     </ul>
+                  </li>
+                  <li class="nav-title">Components</li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="#"
+                      data-n-linkto="components_buttons"
+                    >
+                      <i class="bx bx-purchase-tag-alt nav-icon"></i>
+                      Buttons
+                    </a>
                   </li>
                 </div>
               </div>
@@ -130,7 +182,7 @@
           </button>
           <ul class="header-nav d-none d-md-flex">
             <li class="nav-item">
-              <a class="nav-link" href="#" data-nlinkto="dashboard"
+              <a class="nav-link" href="#" data-n-linkto="dashboard"
                 >Dashboard</a
               >
             </li>
@@ -193,7 +245,11 @@
       </header>
       <div class="body flex-grow-1 px-3">
         <!-- Start -->
-        <div class="container-lg" id="n-admin"></div>
+        <div
+          class="container-lg"
+          id="n-admin"
+          data-n-dynamic-element="main"
+        ></div>
         <!-- End -->
       </div>
       <footer class="footer"></footer>
@@ -202,6 +258,8 @@
     <script src="../assets/global/menuSchema.js"></script>
     <script src="../assets/global/adminGlobal.js"></script>
     <script src="../assets/global/menu.js"></script>
+    <!-- Load Page Scripts Here - Start -->
+    <!-- Load Page Scripts Here - End -->
     <script>
       getPage("dashboard");
     </script>

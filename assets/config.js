@@ -1,3 +1,5 @@
+const ENVIRONMENT = "development"; //development | staging | live
+
 //Base URL for API
 const API_BASE_URL = "";
 
@@ -14,4 +16,12 @@ if (windowLocation.port) {
   SITE_URL += ":" + windowLocation.port;
 }
 
-console.log(SITE_URL, "Site URL");
+if (ENVIRONMENT === "development" || ENVIRONMENT === "staging") {
+  console.log("----- Nano JS Configurations Start -----");
+  console.log("Environment:", ENVIRONMENT);
+  console.log("Site URL:", SITE_URL);
+  console.log(
+    "Visit [PROJECT]/assets/config.js to modify Environment & Site URL "
+  );
+  console.log("----- Nano JS Configurations End-----");
+}

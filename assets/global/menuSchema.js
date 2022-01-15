@@ -3,16 +3,20 @@ const menuSchema = {
     template: "/assets/pages/dashboard/dashboard.html",
     callback: () => {},
   },
-  testPage: {
-    template: "/assets/pages/testPage/testPage.html",
+  testPages_staticTestPage1: {
+    template: "/assets/pages/testPages/staticTestPages/staticTestPage1.html",
     callback: () => {},
   },
-  basicForm: {
-    template: "/assets/pages/formPage/basicForm.html",
+  testPages_basicForm: {
+    template: "/assets/pages/testPages/formPages/basicForm.html",
     callback: () => {},
   },
-  dynamicForm: {
-    template: "/assets/pages/formPage/dynamicForm.html",
+  testPages_dynamicForm: {
+    template: "/assets/pages/testPages/formPages/dynamicForm.html",
+    callback: () => {},
+  },
+  components_buttons: {
+    template: "/assets/pages/components/button.html",
     callback: () => {},
   },
 };
