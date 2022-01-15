@@ -51,7 +51,7 @@
                   <li class="nav-title">Test Pages</li>
                   <li class="nav-group">
                     <a class="nav-link nav-group-toggle" href="#">
-                      <i class="bx bx-purchase-tag-alt nav-icon"></i>
+                      <i class="bx bx-square nav-icon"></i>
                       Static Pages
                     </a>
                     <ul class="nav-group-items">
@@ -75,7 +75,7 @@
                   </li>
                   <li class="nav-group">
                     <a class="nav-link nav-group-toggle" href="#">
-                      <i class="bx bx-purchase-tag-alt nav-icon"></i>
+                      <i class="bx bx-square-rounded nav-icon"></i>
                       API Pages
                     </a>
                     <ul class="nav-group-items">
@@ -99,7 +99,7 @@
                   </li>
                   <li class="nav-group">
                     <a class="nav-link nav-group-toggle" href="#">
-                      <i class="bx bx-detail nav-icon"></i>
+                      <i class="bx bx-polygon nav-icon"></i>
                       Form Pages
                     </a>
                     <ul class="nav-group-items">
@@ -115,11 +115,28 @@
                         <a
                           class="nav-link"
                           href="#"
-                          data-n-linkto="testPages_dynamicForm"
-                          ><span class="nav-icon"></span> Dynamic Form</a
+                          data-n-linkto="testPages_dynamicFieldForm"
+                          ><span class="nav-icon"></span> Dynamic Field Form</a
                         >
                       </li>
                     </ul>
+                  </li>
+                  <li class="nav-title">Theme</li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" data-n-linkto="theme_colors">
+                      <i class="bx bx-palette nav-icon"></i>
+                      Colors
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="#"
+                      data-n-linkto="theme_typography"
+                    >
+                      <i class="bx bx-droplet nav-icon"></i>
+                      Typography
+                    </a>
                   </li>
                   <li class="nav-title">Components</li>
                   <li class="nav-item">
@@ -130,6 +147,12 @@
                     >
                       <i class="bx bx-purchase-tag-alt nav-icon"></i>
                       Buttons
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" data-n-linkto="">
+                      <i class="bx bx-detail nav-icon"></i>
+                      Form Inputs
                     </a>
                   </li>
                 </div>
@@ -245,11 +268,7 @@
       </header>
       <div class="body flex-grow-1 px-3">
         <!-- Start -->
-        <div
-          class="container-lg"
-          id="n-admin"
-          data-n-dynamic-element="main"
-        ></div>
+        <div class="container-lg" data-n-dynamic-element="main"></div>
         <!-- End -->
       </div>
       <footer class="footer"></footer>

@@ -5,18 +5,20 @@ const menuSchema = {
   },
   testPages_staticTestPage1: {
     template: "/assets/pages/testPages/staticTestPages/staticTestPage1.html",
-    callback: () => {},
   },
   testPages_basicForm: {
     template: "/assets/pages/testPages/formPages/basicForm.html",
-    callback: () => {},
   },
-  testPages_dynamicForm: {
-    template: "/assets/pages/testPages/formPages/dynamicForm.html",
-    callback: () => {},
+  testPages_dynamicFieldForm: {
+    template: "/assets/pages/testPages/formPages/dynamicFieldForm.html",
+  },
+  theme_colors: {
+    template: "/assets/pages/theme/colors.html",
+  },
+  theme_typography: {
+    template: "/assets/pages/theme/typography.html",
   },
   components_buttons: {
     template: "/assets/pages/components/button.html",
-    callback: () => {},
   },
 };
