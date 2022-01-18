@@ -1,10 +1,13 @@
 const menuSchema = {
   dashboard: {
     template: "/assets/pages/dashboard/dashboard.html",
-    callback: () => {},
   },
   testPages_staticTestPage1: {
-    template: "/assets/pages/testPages/staticTestPages/staticTestPage1.html",
+    template: "/assets/pages/testPages/staticPages/staticPage1.html",
+  },
+  testPages_apiTestPage1: {
+    template: "/assets/pages/testPages/apiPages/apiPage1.html",
+    callback: getApiPage1Data,
   },
   testPages_basicForm: {
     template: "/assets/pages/testPages/formPages/basicForm.html",

@@ -15,15 +15,18 @@ document.addEventListener("click", function (e) {
 
 const getPage = (page) => {
   let currentMenuSchemaTemplate = "";
+  let currentMenuSchemaCallback;
+
   if (menuSchema.hasOwnProperty(page)) {
     const currentMenuSchema = menuSchema?.[page];
     currentMenuSchemaTemplate = currentMenuSchema?.template;
+    currentMenuSchemaCallback = currentMenuSchema?.callback;
   } else {
     console.error(`Nano JS: Menu "${page}" is not available on menuSchema`);
   }
 
   if (currentMenuSchemaTemplate) {
-    loadPageTemplate(currentMenuSchemaTemplate);
+    loadPageTemplate(currentMenuSchemaTemplate, currentMenuSchemaCallback);
   } else {
     console.error(
       `Nano JS: Template not added for "${page}" menu in menuSchema`
@@ -31,7 +34,7 @@ const getPage = (page) => {
   }
 };
 
-const loadPageTemplate = (template) => {
+const loadPageTemplate = (template, callback) => {
   fetch(`${SITE_URL}${template}`)
     .then((data) => data.text())
     .then((html) => {
@@ -59,6 +62,7 @@ const loadPageTemplate = (template) => {
     })
     .then(() => {
       //API callback
+      callback && callback();
     })
     .catch(function (error) {
       console.log("Nano JS: Page template loading failed", error);
