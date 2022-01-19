@@ -21,12 +21,17 @@ const getPage = (page) => {
     const currentMenuSchema = menuSchema?.[page];
     currentMenuSchemaTemplate = currentMenuSchema?.template;
     currentMenuSchemaCallback = currentMenuSchema?.callback;
+    currentMenuSchemaAppendTo = currentMenuSchema?.appendTo;
   } else {
     console.error(`Nano JS: Menu "${page}" is not available on menuSchema`);
   }
 
   if (currentMenuSchemaTemplate) {
-    loadPageTemplate(currentMenuSchemaTemplate, currentMenuSchemaCallback);
+    loadPageTemplate(
+      currentMenuSchemaTemplate,
+      currentMenuSchemaCallback,
+      currentMenuSchemaAppendTo
+    );
   } else {
     console.error(
       `Nano JS: Template not added for "${page}" menu in menuSchema`
@@ -34,17 +39,18 @@ const getPage = (page) => {
   }
 };
 
-const loadPageTemplate = (template, callback) => {
+const loadPageTemplate = (
+  template,
+  callback,
+  appendTo = "[data-n-dynamic-element='main']"
+) => {
   fetch(`${SITE_URL}${template}`)
     .then((data) => data.text())
     .then((html) => {
-      document.querySelector("[data-n-dynamic-element='main']").innerHTML =
-        html;
+      document.querySelector(appendTo).innerHTML = html;
     })
     .then(function (html) {
-      var scripts = document
-        .querySelector("[data-n-dynamic-element='main']")
-        .querySelectorAll("script");
+      var scripts = document.querySelector(appendTo).querySelectorAll("script");
 
       for (var i = 0; i < scripts.length; i++) {
         if (scripts[i].innerText) {

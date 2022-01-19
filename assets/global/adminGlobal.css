@@ -12504,6 +12504,33 @@ html:not([dir="rtl"]) .wrapper {
   display: none;
 }
 
+.n-card {
+  padding: 10px;
+  word-wrap: break-word;
+  background-color: var(--cui-card-bg, #fff);
+  background-clip: border-box;
+  border: 1px solid var(--cui-card-border-color, rgba(0, 0, 21, 0.125));
+  border-radius: 0.25rem;
+  height: 100%;
+}
+
+.sTP1_sidebar ul {
+  padding-left: 0px;
+  list-style: none;
+}
+
+.sTP1_sidebar ul li {
+  padding: 10px 0px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sTP1_sidebar ul li:hover {
+  color: var(--cui-sidebar-nav-link-hover-color, rgba(255, 255, 255, 0.87));
+  text-decoration: none;
+  background: #3c4b64;
+}
+
 /* Login */
 .login-page {
   background-color: #fafafa;
