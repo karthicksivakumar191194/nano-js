@@ -1,4 +1,5 @@
-const getApiPage1Data = async () => {
+const getApiPage1Data = async (queryParams) => {
+  console.log(queryParams);
   try {
     const apiResponse = await fetch(
       "https://jsonplaceholder.typicode.com/todos/3"
