@@ -4,7 +4,7 @@ NOTE:
 2. Add menu name, url, html template & callback in "assets\global\menuSchema.js" file.
 */
 
-const adminBaseName = "admin"; //admin folder name
+const adminBaseName = ""; //admin folder name
 
 document.addEventListener("click", function (e) {
   if (e.target && e.target.dataset.nLinkto) {
@@ -33,7 +33,7 @@ const getPage = (page, queryParams="", accessingViaBrowserBack = false) => {
     //if page is not accessed by clicking browser back button
     const pageUrl = menuSchema?.[page]?.url;
     if(pageUrl){
-      window.history.pushState({}, "", "/" + adminBaseName + pageUrl + queryParams);
+      window.history.pushState({}, "",  pageUrl + queryParams);
     } else {
       //console.error(`Nano JS: URL not added for "${page}" menu in menuSchema`);
     }
@@ -102,28 +102,30 @@ const loadPageTemplate = (
 };
 
 window.addEventListener('popstate', function(event){
-  let pageSlug = "";
-  let queryParams = "";
+  const pageURLAttributes = getPageURLAndQueryParams();
+  const pageName  = getPageNameByURL(pageURLAttributes.url);
 
-  const pageURL = location.href.split("/" + adminBaseName)[1];
+  if(pageName){
+    //if the url exists on menuSchema render the page
+    getPage(pageName, pageURLAttributes.queryParams, true);
+  }
+})
+
+const getPageURLAndQueryParams = () => {
+  let url = "";
+  let queryParams = "";
+  const pageURL = location.href.split(SITE_URL)[1];
 
   if(pageURL.includes("?")){
     slugQuery = pageURL.split("?");
-
-    console.log(slugQuery);
-
-    pageSlug = slugQuery[0];
+    url = slugQuery[0];
     queryParams = "?" + slugQuery[1];
   }else{
-    pageSlug = pageURL;
+    url = pageURL;
   }
 
-  const pageName = getPageNameByURL(pageSlug);
-  if(pageName){
-    //if the url exists on menuSchema render the page
-    getPage(pageName, queryParams, true);
-  }
-})
+  return {url: url, queryParams: queryParams};
+}
 
 const getPageNameByURL = (url) => {
   //here key contains menu name & value contains template name & url
@@ -135,7 +137,6 @@ const getPageNameByURL = (url) => {
 
   return "";
 }
-
 
 const getPageQueryParams = (dataset) => {
   let queryParams = "";
@@ -160,4 +161,3 @@ const getPageQueryParams = (dataset) => {
 
   return queryParams;
 }
-

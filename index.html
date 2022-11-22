@@ -6,11 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <meta
-      name="google-signin-client_id"
-      content="591014728640-ffhuj822gr8k2f92mpk3l8eg4rbhialf.apps.googleusercontent.com"
-    />
-    <title>NanoJS</title>
+    <title>Admin | NanoJS</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -21,70 +17,269 @@
       href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link href="assets/global/adminGlobal.css" rel="stylesheet" />
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="/assets/global/adminGlobal.css" rel="stylesheet" />
+    <link href="/assets/global/adminSimplebar.css" rel="stylesheet" />
   </head>
-  <body>
-    <div data-n-dynamic-element="login">
-      <div class="container-fluid login-page">
-        <div class="row min-vh-100">
-          <div
-            class="col-md-6 d-flex justify-content-center align-items-center login-page-left"
-          >
-            <img src="assets/images/login.svg" />
+  <body cz-shortcut-listen="true">
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+      <div class="sidebar-brand d-none d-md-flex">
+        <span class="sidebar-brand-full"
+          ><img src="/assets/images/logo.png"
+        /></span>
+        <span class="sidebar-brand-narrow"
+          ><img src="/assets/images/logo2.png"
+        /></span>
+      </div>
+      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="init">
+        <div class="simplebar-wrapper" style="margin: 0px">
+          <div class="simplebar-height-auto-observer-wrapper">
+            <div class="simplebar-height-auto-observer"></div>
           </div>
-          <div
-            class="col-md-6 d-flex justify-content-center align-items-center login-page-right"
-          >
-            <div class="login-container p-5">
-              <p class="login-page-title mb-4">Welcome Back</p>
-              <form autocomplete="off">
-                <div class="floating-label mb-4">
-                  <input
-                    class="floating-input form-control"
-                    type="text"
-                    placeholder=" "
-                    name=""
-                    autocomplete="off"
-                  />
-                  <span class="highlight"></span>
-                  <label>Email</label>
+          <div class="simplebar-mask">
+            <div class="simplebar-offset" style="right: 0px; bottom: 0px">
+              <div
+                class="simplebar-content-wrapper"
+                style="height: 100%; overflow: hidden scroll"
+              >
+                <div class="simplebar-content" style="padding: 0px">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" data-n-linkto="dashboard">
+                      <i class="bx bx-grid-alt nav-icon"></i>
+                      Dashboard
+                    </a>
+                  </li>
+                  <li class="nav-title">Test Pages</li>
+                  <li class="nav-group">
+                    <a class="nav-link nav-group-toggle" href="#">
+                      <i class="bx bx-square nav-icon"></i>
+                      Static Pages
+                    </a>
+                    <ul class="nav-group-items">
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_staticTestPage1"
+                          data-n-url-page="test_page"
+                          data-n-url-meta="1"
+                          ><span class="nav-icon"></span> Test Page1</a
+                        >
+                      </li>
+                      <!-- <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_staticTestPage2"
+                          ><span class="nav-icon"></span> Test Page2</a
+                        >
+                      </li> -->
+                    </ul>
+                  </li>
+                  <li class="nav-group">
+                    <a class="nav-link nav-group-toggle" href="#">
+                      <i class="bx bx-square-rounded nav-icon"></i>
+                      API Pages
+                    </a>
+                    <ul class="nav-group-items">
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_apiTestPage1"
+                          data-n-url-page="api_page"
+                          data-n-url-meta="1"
+                          ><span class="nav-icon"></span> Test Page1</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-group">
+                    <a class="nav-link nav-group-toggle" href="#">
+                      <i class="bx bx-polygon nav-icon"></i>
+                      Form Pages
+                    </a>
+                    <ul class="nav-group-items">
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_basicForm"
+                          ><span class="nav-icon"></span> Basic Form</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="#"
+                          data-n-linkto="testPages_dynamicFieldForm"
+                          ><span class="nav-icon"></span> Dynamic Field Form</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-title">Theme</li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" data-n-linkto="theme_colors">
+                      <i class="bx bx-palette nav-icon"></i>
+                      Colors
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="#"
+                      data-n-linkto="theme_typography"
+                    >
+                      <i class="bx bx-droplet nav-icon"></i>
+                      Typography
+                    </a>
+                  </li>
+                  <li class="nav-title">Components</li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="#"
+                      data-n-linkto="components_buttons"
+                    >
+                      <i class="bx bx-purchase-tag-alt nav-icon"></i>
+                      Buttons
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" data-n-linkto="">
+                      <i class="bx bx-detail nav-icon"></i>
+                      Form Inputs
+                    </a>
+                  </li>
                 </div>
-                <div class="floating-label mb-4">
-                  <input
-                    class="floating-input form-control"
-                    type="password"
-                    placeholder=" "
-                    name=""
-                    autocomplete="off"
-                  />
-                  <span class="highlight"></span>
-                  <label>Password</label>
-                </div>
-                <button
-                  class="btn btn-primary rounded-pill w-100"
-                  type="submit"
-                >
-                  Login
-                </button>
-              </form>
-              <div class="mb-4 mt-4 relative or">
-                <p>OR</p>
               </div>
-              <div class="g-signin2" data-onsuccess="onSignIn"></div>
             </div>
           </div>
+          <div
+            class="simplebar-placeholder"
+            style="width: auto; height: 841px"
+          ></div>
         </div>
-      </div>
+        <div
+          class="simplebar-track simplebar-horizontal"
+          style="visibility: hidden"
+        >
+          <div
+            class="simplebar-scrollbar"
+            style="width: 0px; display: none"
+          ></div>
+        </div>
+        <div
+          class="simplebar-track simplebar-vertical"
+          style="visibility: visible"
+        >
+          <div
+            class="simplebar-scrollbar"
+            style="
+              height: 25px;
+              transform: translate3d(0px, 0px, 0px);
+              display: block;
+            "
+          ></div>
+        </div>
+      </ul>
+      <button
+        class="sidebar-toggler"
+        type="button"
+        data-coreui-toggle="unfoldable"
+      ></button>
     </div>
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+      <header class="header header-sticky mb-4">
+        <div class="container-fluid">
+          <button
+            class="header-toggler px-md-0 me-md-3"
+            type="button"
+            onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()"
+          >
+            <i class="bx bx-menu"></i>
+          </button>
+          <ul class="header-nav d-none d-md-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-n-linkto="dashboard"
+                >Dashboard</a
+              >
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+          </ul>
+          <ul class="header-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bx bxs-bell icon icon-lg"></i>
+              </a>
+            </li>
+          </ul>
+          <ul class="header-nav ms-3">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link py-0"
+                data-coreui-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <div class="avatar avatar-md">
+                  <img
+                    class="avatar-img"
+                    src="/assets/images/initial.png"
+                    alt="test@gmail.com"
+                  />
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end pt-0">
+                <div class="dropdown-header bg-light py-2">
+                  <div class="fw-semibold">Account</div>
+                </div>
+                <a class="dropdown-item" href="#">
+                  <i class="bx bx-message icon me-2"></i>
+                  Messages<span class="badge badge-sm bg-success ms-2">19</span>
+                </a>
+                <div class="dropdown-header bg-light py-2">
+                  <div class="fw-semibold">Settings</div>
+                </div>
+                <a class="dropdown-item" href="#">
+                  <i class="bx bx-user icon me-2"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="bx bxs-wrench icon me-2"></i>
+                  Settings
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                  <i class="bx bx-log-out-circle icon me-2"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <div class="body flex-grow-1 px-3">
+        <!-- Start -->
+        <div class="container-lg" data-n-dynamic-element="main"></div>
+        <!-- End -->
+      </div>
+      <footer class="footer"></footer>
+    </div>
+    <script src="/assets/config.js"></script>
+    <script src="/assets/global/adminGlobal.js"></script>
+    <!-- Load Page Scripts Here - Start -->
+    <script src="/assets/pages/testPages/apiPages/templateAPI.js"></script>
+    <!-- Load Page Scripts Here - End -->
+    <script src="/assets/global/menuSchema.js"></script>
+    <script src="/assets/global/menu.js"></script>
     <script>
-      function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log("Name: " + profile.getName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
-      }
+      const pageURLAttributes = getPageURLAndQueryParams();
+      const pageName = getPageNameByURL(pageURLAttributes.url);
+      getPage(pageName, pageURLAttributes.queryParams, true);
     </script>
   </body>
 </html>
